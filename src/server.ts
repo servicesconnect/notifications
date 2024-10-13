@@ -4,17 +4,16 @@ import { Logger } from "winston";
 import { Application } from "express";
 
 import { envConfig, winstonLogger } from "@notifications/config";
-import { startAndCheckElasticConnection } from "@notifications/config";
+// import { startAndCheckElasticConnection } from "@notifications/config";
+import { createQueueConnection } from "@notifications/config";
 
 const log: Logger = winstonLogger("notificationServer", "debug");
 
 export function start(app: Application): void {
   startServer(app);
-  startQueues();
-  startAndCheckElasticConnection();
+  createQueueConnection();
+  // startAndCheckElasticConnection();
 }
-
-async function startQueues(): Promise<void> {}
 
 function startServer(app: Application): void {
   try {

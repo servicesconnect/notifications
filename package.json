@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start:dev": "nodemon -r tsconfig-paths/register src/app.ts | pino-pretty -c",
-    "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json"
+    "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
+    "test": "jest --runInBand --detectOpenHandles --forceExit"
   },
   "repository": {
     "type": "git",
