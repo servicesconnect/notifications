@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start:dev": "nodemon -r tsconfig-paths/register src/app.ts | pino-pretty -c",
+    "start": "nodemon -r tsconfig-paths/register src/app.ts | pino-pretty -c",
     "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
     "test": "jest --runInBand --detectOpenHandles --forceExit"
   },
