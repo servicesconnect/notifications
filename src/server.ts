@@ -2,17 +2,29 @@ import "express-async-errors";
 import http from "http";
 import { Logger } from "winston";
 import { Application } from "express";
+import { Channel } from "amqplib";
 
 import { envConfig, winstonLogger } from "@notifications/config";
-// import { startAndCheckElasticConnection } from "@notifications/config";
+import { startAndCheckElasticConnection } from "@notifications/config";
 import { createQueueConnection } from "@notifications/config";
+import {
+  consumeAuthEmailMessages,
+  consumeOrderEmailMessages,
+} from "./consumers/email.consumer";
 
 const log: Logger = winstonLogger("notificationServer", "debug");
 
 export function start(app: Application): void {
   startServer(app);
-  createQueueConnection();
-  // startAndCheckElasticConnection();
+  startAndCheckElasticConnection();
+  startQueues();
+}
+
+async function startQueues(): Promise<void> {
+  const channel = await createQueueConnection();
+
+  await consumeAuthEmailMessages(<Channel>channel);
+  await consumeOrderEmailMessages(<Channel>channel);
 }
 
 function startServer(app: Application): void {
