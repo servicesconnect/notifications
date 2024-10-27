@@ -1,4 +1,10 @@
-import { createQueueConnection, winstonLogger } from "@notifications/config";
+import {
+  createQueueConnection,
+  envConfig,
+  winstonLogger,
+} from "@notifications/config";
+import { sendEmail } from "@notifications/emails/mail.transport";
+import { EmailLocals } from "@notifications/models/notifications.model";
 import { Channel, ConsumeMessage } from "amqplib";
 import { Logger } from "winston";
 
@@ -27,10 +33,27 @@ export async function consumeAuthEmailMessages(
     channel.consume(
       servicesconnectQueue.queue,
       async (msg: ConsumeMessage | null) => {
-        console.log(JSON.parse(msg!.content.toString()));
+        const {
+          receiver_email: receiverEmail,
+          username,
+          verify_link,
+          reset_link,
+          template,
+          otp,
+        } = JSON.parse(msg!.content.toString());
 
+        const locals: EmailLocals = {
+          app_link: `${envConfig.client_url}`,
+          app_icon: "https://i.ibb.co/Kyp2m0t/cover.png",
+          username,
+          verify_link,
+          reset_link,
+          otp,
+        };
         // send emails
+        await sendEmail({ template, receiver: receiverEmail, locals });
         // acknowledge
+        channel.ack(msg!);
       }
     );
   } catch (error) {
