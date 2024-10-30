@@ -10,6 +10,7 @@ FROM node:23-alpine3.19
 WORKDIR /app
 RUN apk add --no-cache curl
 COPY *.json yarn.lock ./
+RUN npm install -g pm2
 RUN npm ci --production
 COPY --from=builder /app/build ./build
 
