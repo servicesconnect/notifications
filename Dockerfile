@@ -1,13 +1,18 @@
-FROM node:18-alpine as build-image
-
-LABEL maintainer Daniel Taiwo <danielmayowataiwo@gmail.com>
+FROM node:23-alpine3.19 as builder
 
 WORKDIR /app
+COPY *.json yarn.lock ./
+COPY src ./src
+RUN npm ci && npm run build
 
-COPY package.json yarn.lock ./
+FROM node:23-alpine3.19
 
-RUN yarn install
+WORKDIR /app
+RUN apk add --no-cache curl
+COPY *.json yarn.lock ./
+RUN npm ci --production
+COPY --from=builder /app/build ./build
 
-COPY . .
+EXPOSE 5000
 
 CMD [ "yarn", "start" ]

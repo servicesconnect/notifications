@@ -878,6 +878,14 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
+"@types/glob@~7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@types/glob/-/glob-7.2.0.tgz#bc1b5bf3aa92f25bd5dd39f35c57361bdce5b2eb"
+  integrity sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==
+  dependencies:
+    "@types/minimatch" "*"
+    "@types/node" "*"
+
 "@types/graceful-fs@^4.1.3":
   version "4.1.9"
   resolved "https://registry.yarnpkg.com/@types/graceful-fs/-/graceful-fs-4.1.9.tgz#2a06bc0f68a20ab37b3e36aa238be6abdf49e8b4"
@@ -927,6 +935,11 @@
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-1.3.5.tgz#1ef302e01cf7d2b5a0fa526790c9123bf1d06690"
   integrity sha512-/pyBZWSLD2n0dcHE3hq8s8ZvcETHtEuF+3E7XVt0Ig2nvsVQXdghHVcEkIWjy9A0wKfTn97a/PSDYohKIlnP/w==
 
+"@types/minimatch@*":
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-5.1.2.tgz#07508b45797cb81ec3f273011b054cd0755eddca"
+  integrity sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==
+
 "@types/minimatch@^3.0.3":
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.5.tgz#1001cc5e6a3704b83c236027e77f2f58ea010f40"
@@ -972,6 +985,14 @@
     "@types/http-errors" "*"
     "@types/node" "*"
     "@types/send" "*"
+
+"@types/shelljs@^0.8.15":
+  version "0.8.15"
+  resolved "https://registry.yarnpkg.com/@types/shelljs/-/shelljs-0.8.15.tgz#22c6ab9dfe05cec57d8e6cb1a95ea173aee9fcac"
+  integrity sha512-vzmnCHl6hViPu9GNLQJ+DZFd6BQI2DBTUeOvYHqkWQLMfKAAQYMb/xAmZkTogZI/vqXHCWkqDRymDI5p0QTi5Q==
+  dependencies:
+    "@types/glob" "~7.2.0"
+    "@types/node" "*"
 
 "@types/stack-utils@^2.0.0":
   version "2.0.3"
@@ -2403,7 +2424,7 @@ glob-parent@^5.1.2, glob-parent@~5.1.2:
   dependencies:
     is-glob "^4.0.1"
 
-glob@^7.1.3, glob@^7.1.4:
+glob@^7.0.0, glob@^7.1.3, glob@^7.1.4:
   version "7.2.3"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.2.3.tgz#b8df0fb802bbfa8e89bd1d938b4e16578ed44f2b"
   integrity sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==
@@ -2669,6 +2690,11 @@ ini@~1.3.0:
   version "1.3.8"
   resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.8.tgz#a29da425b48806f34767a4efce397269af28432c"
   integrity sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew==
+
+interpret@^1.0.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.4.0.tgz#665ab8bc4da27a774a40584e812e3e0fa45b1a1e"
+  integrity sha512-agE4QfB2Lkp9uICn7BAqoscw4SZP9kTE2hxiFI3jBPmXJfdqiahTbUuKGsMoN2GtqL9AxhYioAcVvgsb1HvRbA==
 
 ipaddr.js@1.9.1:
   version "1.9.1"
@@ -4341,6 +4367,13 @@ readdirp@~3.6.0:
   dependencies:
     picomatch "^2.2.1"
 
+rechoir@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/rechoir/-/rechoir-0.6.2.tgz#85204b54dba82d5742e28c96756ef43af50e3384"
+  integrity sha512-HFM8rkZ+i3zrV+4LQjwQ0W+ez98pApMGM3HUrN04j3CqzPOzl9nmP15Y8YXNm8QHGv/eacOVEjqhmWpkRV0NAw==
+  dependencies:
+    resolve "^1.1.6"
+
 relative-microtime@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/relative-microtime/-/relative-microtime-2.0.0.tgz#cceed2af095ecd72ea32011279c79e5fcc7de29b"
@@ -4382,7 +4415,7 @@ resolve.exports@^2.0.0:
   resolved "https://registry.yarnpkg.com/resolve.exports/-/resolve.exports-2.0.2.tgz#f8c934b8e6a13f539e38b7098e2e36134f01e800"
   integrity sha512-X2UW6Nw3n/aMgDVy+0rSqgHlv39WZAlZrXCdnbyEiKm17DSqHX4MmQMaST3FbeWR5FTuRcUwYAziZajji0Y7mg==
 
-resolve@^1.15.1, resolve@^1.20.0, resolve@^1.22.8:
+resolve@^1.1.6, resolve@^1.15.1, resolve@^1.20.0, resolve@^1.22.8:
   version "1.22.8"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.22.8.tgz#b6c87a9f2aa06dfab52e3d70ac8cde321fa5a48d"
   integrity sha512-oKWePCxqpd6FlLvGV1VU0x7bkPmmCNolxzjMf4NczoDnQcIWrAF+cPtZn5i6n+RfD2d9i0tzpKnG6Yk168yIyw==
@@ -4541,6 +4574,15 @@ shebang-regex@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-3.0.0.tgz#ae16f1644d873ecad843b0307b143362d4c42172"
   integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
+
+shelljs@^0.8.5:
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/shelljs/-/shelljs-0.8.5.tgz#de055408d8361bed66c669d2f000538ced8ee20c"
+  integrity sha512-TiwcRcrkhHvbrZbnRcFYMLl30Dfov3HKqzp5tO5b4pt6G/SezKcYhmDg15zXVBswHmctSAQKznqNW2LO5tTDow==
+  dependencies:
+    glob "^7.0.0"
+    interpret "^1.0.0"
+    rechoir "^0.6.2"
 
 side-channel@^1.0.6:
   version "1.0.6"
