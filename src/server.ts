@@ -5,7 +5,7 @@ import { Application } from "express";
 import { Channel } from "amqplib";
 
 import { envConfig, winstonLogger } from "@notifications/config";
-// import { startAndCheckElasticConnection } from "@notifications/config";
+import { startAndCheckElasticConnection } from "@notifications/config";
 import { createQueueConnection } from "@notifications/config";
 import {
   consumeAuthEmailMessages,
@@ -16,7 +16,7 @@ const log: Logger = winstonLogger("notificationServer", "debug");
 
 export function start(app: Application): void {
   startServer(app);
-  // startAndCheckElasticConnection();
+  startAndCheckElasticConnection();
   startQueues();
 }
 
