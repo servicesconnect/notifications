@@ -21,7 +21,7 @@ async function emailTemplates(dto: SendEmailDTO): Promise<void> {
     });
     const email: Email = new Email({
       message: {
-        from: `Jobber App <${envConfig.sender_email}>`,
+        from: `Servicesconnect <${envConfig.sender_email}>`,
       },
       send: true,
       preview: false,
